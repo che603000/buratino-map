@@ -1,0 +1,23 @@
+.map {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 900px;
+    background: gray;
+}
+
+.map-content {
+    height: 600px;
+    background: gray;
+}
+
+
+.map-button {
+    background: #eee;
+    padding: 4px;
+    text-align: right;
+}
+
+.map hr {
+    /*height: 0;*/
+}
