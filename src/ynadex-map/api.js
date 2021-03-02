@@ -71,21 +71,15 @@ export const init = (mapId, options) => {
             .then(coords => map.setCenter(coords, 7));
     }
 
-
-
     map.events.add('click', (e) => {
         const coords = e.get('coords');
-
         geocode(coords)
             .then(data => {
-
                 popup(map, data);
-
                 onLocation && onLocation(null, data);
             })
             .catch(err => onLocation && onLocation(err));
     });
-
 };
 
 
