@@ -1,16 +1,14 @@
 const {ymaps} = window;
-let myMap = null;
+
 
 export const ready = ymaps.ready(() => new Promise((res => res())));
 
 export const createMap = (mapId, center) => {
-    myMap = new ymaps.Map(mapId, {
+   return  new ymaps.Map(mapId, {
         center,
         zoom: 8,
         controls: ['geolocationControl']
     });
-
-    return myMap;
 }
 
 export const geocode = (coords) => {
@@ -47,16 +45,13 @@ const popup = (map, data) => {
     const [lat, lng] = coords;
     map.balloon.open(coords, {
         contentHeader: `Адрес<hr/>`,
-        contentBody: `<p>${text}</p>
-                         <sub>Координаты (Ш,Д): ${lat.toPrecision(6)},${lng.toPrecision(6)}</sub>`,
-        //contentFooter: '<button>Сохранить</button>'
+        contentBody: `<p>${text}</p><sub>Координаты (Ш,Д): ${lat.toPrecision(6)},${lng.toPrecision(6)}</sub>`,
+
     });
 }
 
 const location = () => {
     const loc = ymaps.geolocation.get();
-
-    // Асинхронная обработка ответа.
     return loc.then(result => result.geoObjects.position);
 }
 
