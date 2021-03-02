@@ -1,6 +1,5 @@
 const {ymaps} = window;
 
-
 export const ready = ymaps.ready(() => new Promise((res => res())));
 
 export const createMap = (mapId, center) => {
